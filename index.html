@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TECH HUB</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         WELCOME SCREEN
+    ========================== -->
+
+    <section
+        id="welcomeScreen"
+        class="screen active"
+    >
+
+        <div class="welcomeContent">
+
+            <h1>WELCOME</h1>
+
+            <p>TECH HUB</p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DETAILS SCREEN
+    ========================== -->
+
+    <section
+        id="formScreen"
+        class="screen"
+    >
+
+        <div class="formBox">
+
+            <h1>TECH HUB</h1>
+
+            <p>Let's get started!</p>
+
+
+            <!-- NAME -->
+
+            <label for="nameInput">
+                NAME
+            </label>
+
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="Enter your name"
+                autocomplete="off"
+            >
+
+
+            <!-- DEPARTMENT -->
+
+            <label for="departmentInput">
+                DEPARTMENT
+            </label>
+
+            <input
+                type="text"
+                id="departmentInput"
+                placeholder="Enter your department"
+                autocomplete="off"
+            >
+
+
+            <!-- FACULTY / STUDENT -->
+
+            <label>
+                YOU ARE A
+            </label>
+
+            <div class="roleOptions">
+
+                <label class="roleOption">
+
+                    <input
+                        type="radio"
+                        name="role"
+                        value="Faculty"
+                    >
+
+                    <span>
+                        Faculty
+                    </span>
+
+                </label>
+
+
+                <label class="roleOption">
+
+                    <input
+                        type="radio"
+                        name="role"
+                        value="Student"
+                    >
+
+                    <span>
+                        Student
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- ENTER -->
+
+            <button id="enterBtn">
+                ENTER
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COUNTDOWN
+    ========================== -->
+
+    <section
+        id="boomScreen"
+        class="screen"
+    >
+
+        <div id="countText">
+            3
+        </div>
+
+        <div id="awdcText">
+            AWDC
+        </div>
+
+        <div id="boomText">
+            💥
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TECH HUB LOGO
+    ========================== -->
+
+    <section
+        id="logoScreen"
+        class="screen"
+    >
+
+        <div class="logoContent">
+
+
+            <!-- IMPORTANT:
+                 Keep techhub-logo.png
+                 in the SAME folder as index.html
+            -->
+
+            <img
+                src="techhub-logo.png"
+                alt="TECH HUB Logo"
+                id="techHubLogo"
+            >
+
+
+            <h1>
+                TECH HUB
+            </h1>
+
+
+            <p id="welcomeName">
+            </p>
+
+
+            <p id="departmentText">
+            </p>
+
+
+            <p id="roleText">
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         THANK YOU
+    ========================== -->
+
+    <section
+        id="thankScreen"
+        class="screen"
+    >
+
+        <div class="thankContent">
+
+            <h1>
+                THANK YOU
+            </h1>
+
+            <p>
+                Welcome to TECH HUB
+            </p>
+
+            <div class="finalQuote">
+                Unwrap the Unexperienced
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
