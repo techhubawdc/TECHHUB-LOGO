@@ -2,128 +2,142 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>TECH HUB</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-
 
     <!-- =========================
          WELCOME SCREEN
     ========================== -->
 
-    <section
-        id="welcomeScreen"
-        class="screen active"
-    >
+    <section id="welcomeScreen" class="screen active">
 
         <div class="welcomeContent">
 
+            <p class="topText">
+                A NEW JOURNEY BEGINS
+            </p>
+
             <h1>WELCOME</h1>
 
-            <p>TECH HUB</p>
+            <div class="welcomeLine"></div>
+
+            <p class="techSmall">
+                TECH HUB
+            </p>
 
         </div>
 
     </section>
 
 
-
     <!-- =========================
-         DETAILS SCREEN
+         NAME + DEPARTMENT SCREEN
     ========================== -->
 
-    <section
-        id="formScreen"
-        class="screen"
-    >
+    <section id="formScreen" class="screen">
 
-        <div class="formBox">
+        <div class="formCard">
 
-            <h1>TECH HUB</h1>
+            <div class="miniBadge">
+                TH
+            </div>
 
-            <p>Let's get started!</p>
+            <p class="formTop">
+                WELCOME TO
+            </p>
+
+            <h1>
+                TECH HUB
+            </h1>
+
+            <p class="subtitle">
+                Where Ideas Turn Into Impact
+            </p>
 
 
             <!-- NAME -->
 
-            <label for="nameInput">
-                NAME
-            </label>
+            <div class="inputBox">
 
-            <input
-                type="text"
-                id="nameInput"
-                placeholder="Enter your name"
-                autocomplete="off"
-            >
+                <label>
+                    YOUR NAME
+                </label>
+
+                <input
+                    type="text"
+                    id="nameInput"
+                    placeholder="Enter your name"
+                    autocomplete="off"
+                >
+
+            </div>
 
 
             <!-- DEPARTMENT -->
 
-            <label for="departmentInput">
-                DEPARTMENT
-            </label>
+            <div class="inputBox">
 
-            <input
-                type="text"
-                id="departmentInput"
-                placeholder="Enter your department"
-                autocomplete="off"
-            >
+                <label>
+                    YOUR DEPARTMENT
+                </label>
+
+                <input
+                    type="text"
+                    id="departmentInput"
+                    placeholder="Enter your department"
+                    autocomplete="off"
+                >
+
+            </div>
 
 
             <!-- FACULTY / STUDENT -->
 
-            <label>
-                YOU ARE A
-            </label>
+            <div class="inputBox">
 
-            <div class="roleOptions">
-
-                <label class="roleOption">
-
-                    <input
-                        type="radio"
-                        name="role"
-                        value="Faculty"
-                    >
-
-                    <span>
-                        Faculty
-                    </span>
-
+                <label>
+                    YOU ARE A
                 </label>
 
+                <div class="roleOptions">
 
-                <label class="roleOption">
+                    <label class="roleOption">
 
-                    <input
-                        type="radio"
-                        name="role"
-                        value="Student"
-                    >
+                        <input
+                            type="radio"
+                            name="role"
+                            value="Faculty"
+                        >
 
-                    <span>
-                        Student
-                    </span>
+                        <span>
+                            Faculty
+                        </span>
 
-                </label>
+                    </label>
+
+
+                    <label class="roleOption">
+
+                        <input
+                            type="radio"
+                            name="role"
+                            value="Student"
+                        >
+
+                        <span>
+                            Student
+                        </span>
+
+                    </label>
+
+                </div>
 
             </div>
 
@@ -131,23 +145,28 @@
             <!-- ENTER -->
 
             <button id="enterBtn">
+
                 ENTER
+                <span>→</span>
+
             </button>
+
+            <p class="hint">
+                Press ENTER to begin the experience
+            </p>
 
         </div>
 
     </section>
 
 
-
     <!-- =========================
-         COUNTDOWN
+         BOOM SCREEN
     ========================== -->
 
-    <section
-        id="boomScreen"
-        class="screen"
-    >
+    <section id="boomScreen" class="screen">
+
+        <div id="particles"></div>
 
         <div id="countText">
             3
@@ -164,45 +183,35 @@
     </section>
 
 
-
     <!-- =========================
-         TECH HUB LOGO
+         LOGO SCREEN
     ========================== -->
 
-    <section
-        id="logoScreen"
-        class="screen"
-    >
+    <section id="logoScreen" class="screen">
 
         <div class="logoContent">
 
-
-            <!-- IMPORTANT:
-                 Keep techhub-logo.png
-                 in the SAME folder as index.html
-            -->
-
+            <!-- KEEP YOUR LOGO FILE -->
             <img
                 src="techhub-logo.png"
                 alt="TECH HUB Logo"
                 id="techHubLogo"
             >
 
-
             <h1>
                 TECH HUB
             </h1>
 
-
             <p id="welcomeName">
+                Welcome!
             </p>
-
 
             <p id="departmentText">
+                DEPARTMENT
             </p>
 
-
             <p id="roleText">
+                ROLE
             </p>
 
         </div>
@@ -210,15 +219,11 @@
     </section>
 
 
-
     <!-- =========================
-         THANK YOU
+         THANK YOU SCREEN
     ========================== -->
 
-    <section
-        id="thankScreen"
-        class="screen"
-    >
+    <section id="thankScreen" class="screen">
 
         <div class="thankContent">
 
@@ -226,18 +231,27 @@
                 THANK YOU
             </h1>
 
+            <div class="thankLine"></div>
+
             <p>
-                Welcome to TECH HUB
+                Thank you for being a part of
             </p>
 
-            <div class="finalQuote">
+            <h2>
+                TECH HUB
+            </h2>
+
+            <div class="finalMessage">
                 Unwrap the Unexperienced
+            </div>
+
+            <div class="stars">
+                ✦ ✦ ✦
             </div>
 
         </div>
 
     </section>
-
 
 
     <script src="script.js"></script>
