@@ -1,29 +1,55 @@
 // ==========================================
-// TECH HUB - FINAL SCRIPT
+// TECH HUB
 // ==========================================
 
-const welcomeScreen = document.getElementById("welcomeScreen");
-const formScreen = document.getElementById("formScreen");
-const boomScreen = document.getElementById("boomScreen");
-const logoScreen = document.getElementById("logoScreen");
-const thankScreen = document.getElementById("thankScreen");
+const welcomeScreen =
+    document.getElementById("welcomeScreen");
 
-const nameInput = document.getElementById("nameInput");
-const departmentInput = document.getElementById("departmentInput");
-const enterBtn = document.getElementById("enterBtn");
+const formScreen =
+    document.getElementById("formScreen");
 
-const countText = document.getElementById("countText");
-const awdcText = document.getElementById("awdcText");
-const boomText = document.getElementById("boomText");
+const boomScreen =
+    document.getElementById("boomScreen");
 
-const welcomeName = document.getElementById("welcomeName");
-const departmentText = document.getElementById("departmentText");
-const roleText = document.getElementById("roleText");
+const logoScreen =
+    document.getElementById("logoScreen");
+
+const thankScreen =
+    document.getElementById("thankScreen");
+
+
+const nameInput =
+    document.getElementById("nameInput");
+
+const departmentInput =
+    document.getElementById("departmentInput");
+
+const enterBtn =
+    document.getElementById("enterBtn");
+
+
+const countText =
+    document.getElementById("countText");
+
+const awdcText =
+    document.getElementById("awdcText");
+
+const boomText =
+    document.getElementById("boomText");
+
+
+const welcomeName =
+    document.getElementById("welcomeName");
+
+const departmentText =
+    document.getElementById("departmentText");
+
+const roleText =
+    document.getElementById("roleText");
 
 
 // ==========================================
 // WELCOME → FORM
-// 3 SECONDS
 // ==========================================
 
 setTimeout(() => {
@@ -35,7 +61,9 @@ setTimeout(() => {
         formScreen.classList.add("active");
 
         setTimeout(() => {
+
             nameInput.focus();
+
         }, 400);
 
     }, 700);
@@ -59,7 +87,7 @@ enterBtn.addEventListener(
 
 document.addEventListener(
     "keydown",
-    function (event) {
+    function(event) {
 
         if (
             event.key === "Enter" &&
@@ -92,47 +120,29 @@ function startExperience() {
         );
 
 
-    // NAME CHECK
+    // NAME
 
     if (name === "") {
 
         nameInput.focus();
 
-        nameInput.style.borderColor =
-            "#e05252";
-
-        setTimeout(() => {
-
-            nameInput.style.borderColor =
-                "";
-
-        }, 1000);
-
         return;
+
     }
 
 
-    // DEPARTMENT CHECK
+    // DEPARTMENT
 
     if (department === "") {
 
         departmentInput.focus();
 
-        departmentInput.style.borderColor =
-            "#e05252";
-
-        setTimeout(() => {
-
-            departmentInput.style.borderColor =
-                "";
-
-        }, 1000);
-
         return;
+
     }
 
 
-    // FACULTY / STUDENT CHECK
+    // FACULTY / STUDENT
 
     if (!selectedRole) {
 
@@ -141,12 +151,11 @@ function startExperience() {
         );
 
         return;
+
     }
 
 
-    // ======================================
-    // SAVE USER DETAILS
-    // ======================================
+    // SAVE DETAILS
 
     welcomeName.textContent =
         "Welcome, " + name;
@@ -158,15 +167,18 @@ function startExperience() {
         selectedRole.value;
 
 
-    // ======================================
-    // MOVE TO COUNTDOWN
-    // ======================================
+    // MOVE TO BOOM SCREEN
 
-    formScreen.classList.remove("active");
+    formScreen.classList.remove(
+        "active"
+    );
+
 
     setTimeout(() => {
 
-        boomScreen.classList.add("active");
+        boomScreen.classList.add(
+            "active"
+        );
 
         startCountdown();
 
@@ -177,17 +189,22 @@ function startExperience() {
 
 // ==========================================
 // COUNTDOWN
-//
-// 3
-// 2
-// 1
-// AWDC
-// BOOM
+// 3 → 2 → 1
 // ==========================================
 
 function startCountdown() {
 
-    const steps = [
+    countText.style.display =
+        "block";
+
+    awdcText.style.display =
+        "none";
+
+    boomText.style.display =
+        "none";
+
+
+    const numbers = [
         "3",
         "2",
         "1"
@@ -196,31 +213,20 @@ function startCountdown() {
     let index = 0;
 
 
-    // Make sure AWDC / BOOM hidden
+    function showNext() {
 
-    awdcText.style.display = "none";
-
-    boomText.style.display = "none";
-
-
-    function showNumber() {
-
-        if (index >= steps.length) {
+        if (index >= numbers.length) {
 
             showAWDC();
 
             return;
+
         }
 
 
-        countText.style.display =
-            "block";
-
         countText.textContent =
-            steps[index];
+            numbers[index];
 
-
-        // Restart animation
 
         countText.style.animation =
             "none";
@@ -228,21 +234,21 @@ function startCountdown() {
         void countText.offsetWidth;
 
         countText.style.animation =
-            "countAnimation 0.8s ease";
+            "countPulse 0.8s ease";
 
 
         index++;
 
 
         setTimeout(
-            showNumber,
+            showNext,
             900
         );
 
     }
 
 
-    showNumber();
+    showNext();
 
 }
 
@@ -260,18 +266,14 @@ function showAWDC() {
         "block";
 
 
-    // Restart animation
-
     awdcText.style.animation =
         "none";
 
     void awdcText.offsetWidth;
 
     awdcText.style.animation =
-        "awdcAppear 1s ease";
+        "awdcReveal 1s ease";
 
-
-    // AWDC stays for 1.5 sec
 
     setTimeout(() => {
 
@@ -295,18 +297,14 @@ function showBOOM() {
         "block";
 
 
-    // Restart animation
-
     boomText.style.animation =
         "none";
 
     void boomText.offsetWidth;
 
     boomText.style.animation =
-        "boomAnimation 0.8s ease";
+        "boomReveal 0.8s ease";
 
-
-    // Go to logo
 
     setTimeout(() => {
 
@@ -318,7 +316,7 @@ function showBOOM() {
 
 
 // ==========================================
-// LOGO REVEAL
+// LOGO
 // ==========================================
 
 function showLogo() {
@@ -337,7 +335,7 @@ function showLogo() {
     }, 700);
 
 
-    // Logo stays for 6 seconds
+    // Logo stays 6 seconds
 
     setTimeout(() => {
 
