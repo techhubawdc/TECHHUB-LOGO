@@ -875,258 +875,26 @@ button{
 
 
 /* =================================================
-   BANNER
+   BANNER VIDEO REVEAL
 ================================================= */
 
 #bannerReveal{
-
     background:#000;
-
     padding:0;
-
     overflow:hidden;
-
     z-index:20;
 }
 
-.bannerFinal{
-
+.bannerVideo{
     position:absolute;
-
     inset:0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:3vh 2vw;
-
-    opacity:0;
-
-    transform:scale(1.04);
-
-    transition:
-        opacity .7s ease,
-        transform .9s ease;
-}
-
-.bannerFinal.visible{
-
-    opacity:1;
-
-    transform:scale(1);
-}
-
-.bannerFinal img{
-
     width:100%;
     height:100%;
-
     object-fit:contain;
-
     object-position:center;
-
+    background:#000;
     display:block;
 }
-
-
-/* slices */
-
-.bannerSlices{
-
-    position:absolute;
-
-    inset:0;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(8,1fr);
-
-    z-index:4;
-}
-
-.slice{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:#000;
-
-    box-shadow:
-        0 0 18px rgba(0,0,0,.9);
-
-    transform:scaleX(1);
-
-    transform-origin:center;
-}
-
-.slice::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.95),
-            rgba(0,210,255,.12),
-            rgba(0,0,0,.95)
-        );
-
-    opacity:.7;
-}
-
-.slice:nth-child(1),
-.slice:nth-child(2),
-.slice:nth-child(3),
-.slice:nth-child(4){
-
-    transform-origin:right center;
-}
-
-.slice:nth-child(5),
-.slice:nth-child(6),
-.slice:nth-child(7),
-.slice:nth-child(8){
-
-    transform-origin:left center;
-}
-
-.bannerSlices.open .slice:nth-child(1){
-    animation:openLeft 1.7s cubic-bezier(.16,1,.3,1) .05s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(2){
-    animation:openLeft 1.7s cubic-bezier(.16,1,.3,1) .12s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(3){
-    animation:openLeft 1.7s cubic-bezier(.16,1,.3,1) .19s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(4){
-    animation:openLeft 1.7s cubic-bezier(.16,1,.3,1) .26s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(5){
-    animation:openRight 1.7s cubic-bezier(.16,1,.3,1) .26s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(6){
-    animation:openRight 1.7s cubic-bezier(.16,1,.3,1) .19s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(7){
-    animation:openRight 1.7s cubic-bezier(.16,1,.3,1) .12s forwards;
-}
-
-.bannerSlices.open .slice:nth-child(8){
-    animation:openRight 1.7s cubic-bezier(.16,1,.3,1) .05s forwards;
-}
-
-@keyframes openLeft{
-
-    to{
-        transform:
-            translateX(-115%)
-            scaleX(.92);
-
-        opacity:0;
-    }
-
-}
-
-@keyframes openRight{
-
-    to{
-        transform:
-            translateX(115%)
-            scaleX(.92);
-
-        opacity:0;
-    }
-
-}
-
-
-/* banner glow */
-
-.bannerGlow{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:6;
-
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(0,210,255,.4),
-            transparent 55%
-        );
-
-    opacity:0;
-}
-
-.bannerGlow.on{
-
-    animation:
-        glow .9s ease forwards;
-}
-
-@keyframes glow{
-
-    0%{
-        opacity:0;
-    }
-
-    35%{
-        opacity:.8;
-    }
-
-    100%{
-        opacity:.15;
-    }
-
-}
-
-
-/* =================================================
-   LOGO READY
-================================================= */
-
-#logoReady .readyTitle{
-
-    font-size:clamp(30px,6vw,82px);
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    text-shadow:
-        0 0 30px #00d9ff;
-}
-
-
-/* =================================================
-   LOGO LOADING
-================================================= */
-
-#logoLoading .loadingTitle{
-
-    font-size:clamp(28px,5vw,70px);
-}
-
 
 /* =================================================
    LOGO COUNTDOWN
@@ -1163,7 +931,7 @@ button{
     background:#000;
 }
 
-.logoLaunch img{
+.logoLaunch .logoVideo{
 
     max-width:80vw;
 
@@ -1190,7 +958,7 @@ button{
         logoScene 2.2s ease forwards;
 }
 
-.logoLaunch.show img{
+.logoLaunch.show .logoVideo{
 
     animation:
         logoPop 2.2s cubic-bezier(.16,1,.3,1) forwards;
@@ -1267,6 +1035,51 @@ button{
 
 }
 
+
+/* =================================================
+   CLEAN CINEMATIC INTRO TEXT
+================================================= */
+.launchIntro{
+    gap:0;
+}
+.launchIntro > .label,
+.launchIntro > .introMain,
+.launchIntro > .introSub{
+    opacity:0;
+    transform:translateY(18px) scale(.98);
+}
+.launchIntro.introRun > .label{
+    animation:introLine .65s ease forwards;
+}
+.launchIntro.introRun > .introMain{
+    animation:introLine .8s ease .65s forwards;
+}
+.launchIntro.introRun > .introSub{
+    animation:introLine .8s ease 1.35s forwards;
+}
+@keyframes introLine{
+    0%{opacity:0;transform:translateY(18px) scale(.98)}
+    100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.introMain{
+    max-width:92vw;
+    font-size:clamp(32px,6vw,82px);
+    font-weight:900;
+    letter-spacing:clamp(1px,.35vw,5px);
+    line-height:1.15;
+    text-shadow:0 0 25px rgba(0,210,255,.35);
+}
+.introSub{
+    margin-top:20px;
+    color:#a7bdcc;
+    font-size:clamp(15px,2.2vw,30px);
+    letter-spacing:clamp(1px,.25vw,4px);
+}
+.authIntro .introMain{
+    max-width:90vw;
+    font-size:clamp(28px,5vw,68px);
+}
+
 </style>
 </head>
 
@@ -1300,11 +1113,20 @@ button{
 
 
 <!-- =================================================
+     0. OPENING
+================================================= -->
+<div class="screen hidden launchIntro" id="weAreHere">
+    <div class="label">TECH HUB GRAND LAUNCH</div>
+    <div class="introMain">WE ARE HERE</div>
+    <div class="introSub">TO LAUNCH OUR TECH HUB BANNER</div>
+</div>
+
+<!-- =================================================
      1. SYSTEM INITIALIZATION
 ================================================= -->
 
 <div
-    class="screen"
+    class="screen hidden"
     id="boot">
 
     <div class="label">
@@ -1329,7 +1151,16 @@ button{
 
 
 <!-- =================================================
-     2. PRESIDENT
+     2. PRESIDENT INTRO
+================================================= -->
+<div class="screen hidden launchIntro authIntro" id="presidentIntro">
+    <div class="label">AUTHORIZATION SEQUENCE</div>
+    <div class="introMain">LET'S TRY OUR PRESIDENT'S AUTHORIZATION</div>
+    <div class="introSub">PRESIDENT ACCESS REQUIRED</div>
+</div>
+
+<!-- =================================================
+     3. PRESIDENT
 ================================================= -->
 
 <div
@@ -1418,12 +1249,21 @@ button{
 
 
 <!-- =================================================
-     5. ASSOCIATE PRESIDENT
+     5. ASSOCIATIVE PRESIDENT INTRO
+================================================= -->
+<div class="screen hidden launchIntro authIntro" id="associativeIntro">
+    <div class="label">SECOND AUTHORIZATION SEQUENCE</div>
+    <div class="introMain">LET'S TRY ASSOCIATIVE PRESIDENT'S AUTHORIZATION</div>
+    <div class="introSub">SECOND ACCESS REQUIRED</div>
+</div>
+
+<!-- =================================================
+     6. ASSOCIATIVE PRESIDENT
 ================================================= -->
 
 <div
     class="screen hidden"
-    id="associate">
+    id="associative">
 
     <div class="label">
         SECOND AUTHORIZATION REQUIRED
@@ -1439,7 +1279,7 @@ button{
 
     <button
         class="enterBtn"
-        onclick="associateEnter()">
+        onclick="associativeEnter()">
 
         ENTER
 
@@ -1449,12 +1289,12 @@ button{
 
 
 <!-- =================================================
-     6. ASSOCIATE LOADING
+     6. associative LOADING
 ================================================= -->
 
 <div
     class="screen hidden loadingScreen"
-    id="associateLoading">
+    id="associativeLoading">
 
     <div class="label">
         SECURITY PROTOCOL
@@ -1465,7 +1305,7 @@ button{
     </div>
 
     <div class="loadingText">
-        VERIFYING ASSOCIATE PRESIDENT AUTHORIZATION
+        VERIFYING ASSOCIATIVE PRESIDENT AUTHORIZATION
     </div>
 
     <div class="dots">
@@ -1480,7 +1320,7 @@ button{
 
 
 <!-- =================================================
-     7. ASSOCIATE ERROR
+     7. associative ERROR
 ================================================= -->
 
 <div
@@ -1498,7 +1338,7 @@ button{
         </div>
 
         <div class="errorSmall">
-            ASSOCIATE PRESIDENT ACCESS DENIED
+            ASSOCIATIVE PRESIDENT ACCESS DENIED
         </div>
 
     </div>
@@ -1736,39 +1576,15 @@ button{
     class="screen hidden"
     id="bannerReveal">
 
-
-    <div
-        class="bannerFinal"
-        id="bannerFinal">
-
-        <img
-            src="techhub-banner.png.png"
-            alt="TECH HUB Banner">
-
-    </div>
-
-
-    <div
-        class="bannerSlices"
-        id="bannerSlices">
-
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-
-    </div>
-
-
-    <div
-        class="bannerGlow"
-        id="bannerGlow">
-    </div>
+    <video
+        id="bannerVideo"
+        class="bannerVideo"
+        src="banner.mp4"
+        playsinline
+        preload="auto"
+        controlslist="nodownload noplaybackrate nofullscreen nofullscreen"
+        disablepictureinpicture>
+    </video>
 
 </div>
 
@@ -1858,10 +1674,15 @@ button{
     class="logoLaunch"
     id="logoLaunch">
 
-    <img
-        id="logoImage"
-        src="techhub-logo.png"
-        alt="TECH HUB Logo">
+    <video
+        id="logoVideo"
+        class="logoVideo"
+        src="logo.mp4"
+        playsinline
+        preload="auto"
+        controlslist="nodownload noplaybackrate nofullscreen"
+        disablepictureinpicture>
+    </video>
 
 </div>
 
@@ -2230,7 +2051,11 @@ function stopOptional(a){
 
 const screens=[
 
+    "weAreHere",
+
     "boot",
+
+    "presidentIntro",
 
     "president",
 
@@ -2238,9 +2063,11 @@ const screens=[
 
     "error1",
 
-    "associate",
+    "associativeIntro",
 
-    "associateLoading",
+    "associative",
+
+    "associativeLoading",
 
     "error2",
 
@@ -2313,29 +2140,69 @@ for(
 }
 
 
+function playIntro(id){
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.classList.remove("introRun");
+    void el.offsetWidth;
+    el.classList.add("introRun");
+}
+
+
 /* =================================================
    BOOT → PRESIDENT
 ================================================= */
 
-setTimeout(()=>{
+/* WE ARE HERE → INITIALIZATION → PRESIDENT INTRO → PRESIDENT */
+/* IMPORTANT: only ONE opening screen is visible at a time. */
+window.addEventListener("DOMContentLoaded",()=>{
 
-    document
-        .getElementById("boot")
-        .style.opacity="0";
+    const intro=document.getElementById("weAreHere");
+    const boot=document.getElementById("boot");
 
+    hideAll();
 
+    /* 1. WE ARE HERE */
+    intro.classList.remove("hidden");
+    playIntro("weAreHere");
+
+    /* 2. Move cleanly to system initialization */
     setTimeout(()=>{
+        intro.classList.add("hidden");
+        intro.classList.remove("introRun");
 
-        hideAll();
+        boot.style.opacity="1";
+        boot.classList.remove("hidden");
 
-        document
-            .getElementById("president")
-            .classList
-            .remove("hidden");
+        /* restart the loading bar every time */
+        const bar=boot.querySelector(".loadingBar");
+        if(bar){
+            bar.style.animation="none";
+            void bar.offsetWidth;
+            bar.style.animation="load 3s forwards";
+        }
 
-    },900);
+        /* 3. After initialization → President intro */
+        setTimeout(()=>{
+            boot.style.opacity="0";
 
-},3500);
+            setTimeout(()=>{
+                hideAll();
+
+                const pi=document.getElementById("presidentIntro");
+                pi.classList.remove("hidden");
+                playIntro("presidentIntro");
+
+                setTimeout(()=>{
+                    hideAll();
+                    document.getElementById("president").classList.remove("hidden");
+                },2800);
+
+            },700);
+        },5000);
+
+    },3200);
+});
 
 
 /* =================================================
@@ -2375,9 +2242,22 @@ function presidentEnter(){
         hideAll();
 
         document
-            .getElementById("associate")
+            .getElementById("associativeIntro")
             .classList
             .remove("hidden");
+
+        playIntro("associativeIntro");
+
+        setTimeout(()=>{
+
+            hideAll();
+
+            document
+                .getElementById("associative")
+                .classList
+                .remove("hidden");
+
+        },2800);
 
     },5500);
 
@@ -2385,10 +2265,10 @@ function presidentEnter(){
 
 
 /* =================================================
-   ASSOCIATE
+   associative
 ================================================= */
 
-function associateEnter(){
+function associativeEnter(){
 
     unlockAudio();
 
@@ -2397,7 +2277,7 @@ function associateEnter(){
     hideAll();
 
     document
-        .getElementById("associateLoading")
+        .getElementById("associativeLoading")
         .classList
         .remove("hidden");
 
@@ -2797,78 +2677,46 @@ function finalBannerReveal(){
 
     soundReveal();
 
-    playOptional(
-        optionalMusic.banner
-    );
-
-
     const b =
         document.getElementById(
             "bannerReveal"
         );
 
-    const s =
+    const video =
         document.getElementById(
-            "bannerSlices"
+            "bannerVideo"
         );
 
-    const f =
-        document.getElementById(
-            "bannerFinal"
-        );
-
-    const g =
-        document.getElementById(
-            "bannerGlow"
-        );
-
-
-    b.classList.remove(
-        "hidden"
-    );
-
-    s.classList.remove(
-        "open"
-    );
-
-    f.classList.remove(
-        "visible"
-    );
-
-    g.classList.remove(
-        "on"
-    );
-
-
-    void s.offsetWidth;
-
-
-    s.classList.add(
-        "open"
-    );
-
-    g.classList.add(
-        "on"
-    );
-
-
-    setTimeout(
-        ()=>f.classList.add(
-            "visible"
-        ),
-        1450
-    );
-
+    b.classList.remove("hidden");
 
     /*
-       BANNER = 1 MINUTE
+       PLAY THE ACTUAL BANNER VIDEO
+       instead of the old CSS slice animation.
     */
+    try{
+        video.currentTime = 0;
+        video.muted = false;
+        const playPromise = video.play();
 
+        if(playPromise){
+            playPromise.catch(()=>{
+                /* If browser blocks sound autoplay, start muted. */
+                video.muted = true;
+                video.play().catch(()=>{});
+            });
+        }
+    }catch(e){}
+
+    /*
+       BANNER VIDEO SCREEN = 1 MINUTE
+       After 1 minute, continue to logo preparation.
+    */
     setTimeout(()=>{
 
-        stopOptional(
-            optionalMusic.banner
-        );
+        try{
+            video.pause();
+            video.currentTime = 0;
+        }catch(e){}
 
         hideAll();
 
@@ -3003,43 +2851,51 @@ function revealLogo(){
         optionalMusic.logo
     );
 
-
     const scene =
         document.getElementById(
             "logoLaunch"
         );
 
+    const video =
+        document.getElementById(
+            "logoVideo"
+        );
 
-    scene.classList.remove(
-        "show"
-    );
-
+    scene.classList.remove("show");
     void scene.offsetWidth;
+    scene.classList.add("show");
 
-    scene.classList.add(
-        "show"
-    );
+    try{
+        video.pause();
+        video.currentTime = 0;
+        video.muted = false;
 
+        const playPromise = video.play();
+        if(playPromise){
+            playPromise.catch(()=>{
+                video.muted = true;
+                video.play().catch(()=>{});
+            });
+        }
+    }catch(e){}
 
-    /*
-       LOGO STAYS FOR 45 SECONDS
-    */
-
+    /* LOGO VIDEO STAYS FOR 45 SECONDS */
     setTimeout(()=>{
 
         stopOptional(
             optionalMusic.logo
         );
 
-        scene.classList.remove(
-            "show"
-        );
+        scene.classList.remove("show");
+
+        try{
+            video.pause();
+            video.currentTime = 0;
+        }catch(e){}
 
     },45000);
 
 }
 
-</script>
 
-</body>
-</html>
+>
